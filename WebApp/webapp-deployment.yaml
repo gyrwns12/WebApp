@@ -16,4 +16,4 @@ spec:
       - name: webapp
         image: hyeokjunyun/webapp:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8081

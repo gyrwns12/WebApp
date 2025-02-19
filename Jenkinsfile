@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE:latest .'
+                sh 'docker build -t $DOCKER_IMAGE:latest -f WebApp/Dockerfile WebApp/'  // WebApi 내부에서 빌드
             }
         }
         stage('Push') {
@@ -26,8 +26,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh 'kubectl apply -f webapp-deployment.yaml'
-                    sh 'kubectl apply -f webapp-service.yaml'
+                    sh 'kubectl apply -f WebApp/webapp-deployment.yaml'  // WebApp 내부에서 적용
+                    sh 'kubectl apply -f WebApp/webapp-service.yaml'
                 }
             }
         }
