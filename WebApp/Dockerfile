@@ -15,7 +15,7 @@ WORKDIR /src
 COPY ["WebApp.csproj", "./"]
 RUN dotnet restore "./WebApp.csproj"
 COPY . .
-RUN dotnet build "./WebApo.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./WebApp.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # 이 스테이지는 최종 스테이지에 복사할 서비스 프로젝트를 게시하는 데 사용됩니다.
 FROM build AS publish
