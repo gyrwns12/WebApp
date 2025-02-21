@@ -28,6 +28,8 @@ pipeline {
                 script {
                     sh 'kubectl apply -f WebApp/webapp-deployment.yaml'  // WebApp 내부에서 적용
                     sh 'kubectl apply -f WebApp/webapp-service.yaml'
+                    sh 'kubectl rollout restart deployment webapp'
+                    sh 'sleep 5'
                 }
             }
         }
