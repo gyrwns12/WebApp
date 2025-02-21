@@ -13,7 +13,7 @@ public class HomeController : Controller
             ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
         };
         HttpClient client = new HttpClient(handler);
-        var response = await client.GetStringAsync("http://192.168.56.30:30001/home");
+        var response = await client.GetStringAsync("http://10.98.53.40:8080/home");
         ViewBag.Message = response;
         return View();
     }
